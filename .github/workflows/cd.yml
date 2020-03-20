@@ -1,0 +1,50 @@
+name: CD
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: false
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@master
+#     - name: Create a Release
+#       uses: elgohr/Github-Release-Action@master
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+# jobs:
+#   publish:
+#     runs-on: ubuntu-16.04
+#     steps:
+#     - uses: actions/checkout@v1
+#       with:
+#         ref: 'master'
+#     - name: Create a Release
+#       uses: elgohr/Github-Release-Action@master
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+#     - name: Publish package on hex.pm
+#     - uses: actions/setup-elixir@v1
+#       run: mix hex.publish --yes
