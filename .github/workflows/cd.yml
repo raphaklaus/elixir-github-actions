@@ -30,7 +30,10 @@ jobs:
           otp-version: '22.x'
           elixir-version: '1.9.4'
       - name: Publish package on hex.pm
-        run: mix hex.publish --yes
+        run: |
+          mix hex.config api_key ${{ secrets.HEX_API_KEY }}  
+          mix hex.publish --yes
+
 
 #
 # jobs:
