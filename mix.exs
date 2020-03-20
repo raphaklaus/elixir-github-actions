@@ -4,7 +4,7 @@ defmodule App.MixProject do
   def project do
     [
       app: :app,
-      name: "elixir-github-actions",
+      name: "elixir_github_actions",
       version: "0.1.0",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
@@ -37,7 +37,7 @@ defmodule App.MixProject do
   defp package() do
     [
       # This option is only needed when you don't want to use the OTP application name
-      name: "elixir-github-actions",
+      name: "elixir_github_actions",
       description: "elixir-github-actions",
       # These are the default files included in the package
       files: ~w(lib .formatter.exs .gitignore mix.exs README* test),
