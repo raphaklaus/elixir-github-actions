@@ -28,6 +28,7 @@ jobs:
       - uses: actions/setup-elixir@v1
       - name: Publish package on hex.pm
         run: mix hex.publish --yes
+
 #
 # jobs:
 #   build:
