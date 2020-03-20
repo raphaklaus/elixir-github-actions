@@ -25,6 +25,10 @@ jobs:
             - Second Change
           draft: false
           prerelease: false
+      - name: Publish package on hex.pm
+        uses: actions/setup-elixir@v1
+        run: mix hex.publish --yes
+
 # jobs:
 #   build:
 #     runs-on: ubuntu-latest
